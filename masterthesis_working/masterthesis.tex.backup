@@ -1,0 +1,109 @@
+\documentclass{report}
+
+\usepackage[ansinew]{inputenc}
+\usepackage{booktabs}
+
+\usepackage{graphicx}
+
+\usepackage{amssymb} % for using \mathbb{R}
+
+\usepackage{amsmath}
+
+\usepackage{setspace} % for 1.5 line spacing
+\onehalfspacing % for 1.5 line spacing
+
+\usepackage{cite}
+
+\usepackage{url} % for using urls
+
+\usepackage{titletoc}% for showing chapters in TOC http://ctan.org/pkg/titletoc
+\titlecontents*{chapter}% <section-type>
+  [0pt]% <left>
+  {}% <above-code>
+  {\bfseries\chaptername\ \thecontentslabel\quad}% <numbered-entry-format>
+  {}% <numberless-entry-format>
+  {\bfseries\hfill\contentspage}% <filler-page-format>
+
+
+\begin{document}
+
+\graphicspath{{./figures/}} %\graphicspath{{subdir1/}{subdir2/}{subdir3/}...{subdirn/}}
+
+
+\begin{titlepage}
+\centering
+\textsc{\Large \mbox{\centerline{Potsdam Institute For Climate Impact Research}}
+	\\[1.5ex] University of Potsdam}
+
+\vspace*{4.2cm}
+
+\rule{\textwidth}{1pt}\\[0.5cm]
+{\huge \bfseries
+  %Introductory phase report \\[0.3ex]
+  Introductory phase report\\[1.5ex]
+  \Large Optimal adjustment of the global trade system to local network disruption}\\[0.5cm]
+\rule{\textwidth}{1pt}
+
+\vspace*{2cm}
+
+\begin{Large}
+\begin{tabular}{ll}
+Name: & Sebastian Klipp\\	
+Matriculation number: & 779142 \\      
+Period: & 1.5.15 - 31.9.15\\
+E-Mail:   & sklipp@uni-potsdam.de\\	      
+Supervisor: & Leonie Wenz \\
+Examiner    & Prof. Dr. Anders Levermann
+\end{tabular}
+\end{Large}
+
+\vspace*{0.8cm}
+
+
+
+\end{titlepage}
+
+
+\tableofcontents
+
+\newpage
+
+
+\chapter{Introduction}
+
+\input{introduction/introduction.tex}      
+
+\input{theory/theory.tex}
+
+\input{model_setup/model_setup.tex}
+
+
+\input{results/results.tex}
+
+
+ 
+
+
+
+
+
+\chapter{Final}
+
+\section{discussion}
+
+\section{Ausblick}
+ 
+ 
+
+
+\section{Appendix}
+
+\bibliography{sources123}{}
+\bibliographystyle{unsrt}
+
+
+
+
+
+
+\end{document}

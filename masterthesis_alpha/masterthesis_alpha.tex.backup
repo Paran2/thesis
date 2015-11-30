@@ -1,0 +1,421 @@
+\documentclass{report}
+
+\usepackage[ansinew]{inputenc}
+\usepackage{booktabs}
+
+\usepackage{graphicx}
+
+\usepackage{amssymb} % for using \mathbb{R}
+
+\usepackage{amsmath}
+
+\usepackage{setspace} % for 1.5 line spacing
+\onehalfspacing % for 1.5 line spacing
+
+\usepackage{cite}
+
+\usepackage{url} % for using urls
+
+
+\begin{document}
+
+\graphicspath{{./figures/}} %\graphicspath{{subdir1/}{subdir2/}{subdir3/}...{subdirn/}}
+
+
+\begin{titlepage}
+\centering
+\textsc{\Large \mbox{\centerline{Potsdam Institute For Climate Impact Research}}
+	\\[1.5ex] University of Potsdam}
+
+\vspace*{4.2cm}
+
+\rule{\textwidth}{1pt}\\[0.5cm]
+{\huge \bfseries
+  %Introductory phase report \\[0.3ex]
+  Introductory phase report\\[1.5ex]
+  \Large Optimal adjustment of the global trade system to local network disruption}\\[0.5cm]
+\rule{\textwidth}{1pt}
+
+\vspace*{2cm}
+
+\begin{Large}
+\begin{tabular}{ll}
+Name: & Sebastian Klipp\\	
+Matriculation number: & 779142 \\      
+Period: & 1.5.15 - 31.9.15\\
+E-Mail:   & sklipp@uni-potsdam.de\\	      
+Supervisor: & Leonie Wenz \\
+Examiner    & Prof. Dr. Anders Levermann
+\end{tabular}
+\end{Large}
+
+\vspace*{0.8cm}
+
+
+
+\end{titlepage}
+
+
+\tableofcontents
+
+\newpage
+
+%% Alles was mit EORA zu tun hat: Nicht in den Report bringen! Das ist meine Masterarbeit.
+%% Hier quasi die Vorarbeiten einbringen, generelles Verständnis der Methoden und Anwendungsbeispiele und daraus erhaltene Erkenntnisse (testworlds)
+
+\chapter{Theory}
+
+\section{Introduction}
+% refer to catastrophes / extreme events
+% Trade networks under perturbations
+% MRIOTs
+
+Forecasts for the next century predict an increase of global extreme events like droughts, floods or tornados. The report of the 
+\textit{Intergovernmental Panel on Climate Change (IPCC)}\footnote{Intergovernmental Panel on Climate Change (IPCC). Managing the Risks of Extreme 
+Events and Disasters to Advance Climate Change Adaptation. A Special Report of Working Groups I and II of the Intergovernmental Panel on Climate 
+Change (SREX). [Field, C.B. et al.]. Cambridge, UK and New York, NY, USA : Cambridge University Press, 2012} confirms the relevance of extreme events. 
+Nature catastrophies cause destruction and misery in the affected region, inter alia whole economic sectors are struck leading to a reduction in 
+production capabilites. As a result, economic sectors connected by the global trade network to the affected one could also be influenced causing the 
+need to adapt their production, possibly leading to second order effects on further economic sectors. As a consequence of this effect a local 
+perturbation spreads into the global trade network and therefore affects economic sectors all over the world - potentially even those far away from 
+the source of catastrophy.\\
+A representation of the global trade network can be obtained by using \textit{multi regional input output tables (MRIOT)}, which contain information 
+about all significant intermediate monetary flows between economic sectors of the world's regions and their final demands (consumption). A 
+comprehensive MRIOT data set is the EORA data set\footnote{Lenzen M, Kanemoto K; Moran D, and Geschke A (2012) Mapping the structure of the world 
+economy, Environmental Science \& Technology 46(15) pp 8374-8381}, which is used in this work. \\
+Imposing fundamental rules upon the global trade network, namely the production output balance equation, the supply of required inputs and the
+necessity of satisfying the final demands of each region, defines the space of the network's reaction behaviours in answer to 
+perturbations. Satisfying these equations, each economic sector adapts its input/output flows and produciton ratio, while the latter is kept 
+as close to its initial (optimal) value as possible. Temporary over- or underproductions lead to additional global costs of adaptation. These rules 
+lead to a linear optimisation problem (see chapter \ref{chapter:LP}), which is solved by using the simplex method (see chapter 
+\ref{chapter:simplex}).
+
+
+
+\section{Linear optimisation problem}
+% decision for linear program (vs. nonlinear / quadratic program)
+% LPG
+%  Explanation of constraints
+%  formula for varn and eqn
+% LPS
+%  Explanation of constraints
+%  formula for varn and eqn
+% goal function F=1.
+
+\label{chapter:LP}
+
+The data of a MRIOT can be interpreted as a network representation with $n_r$ global regions, each containing $n_i$ economic sectors, 
+so that $n_{ir}=n_i\cdot n_r$ yields the total amount of regional sectors. Each node $ir \in V:= \{1,...,n_{ir}\}$ represents a regional sector with 
+a production ratio $p_{ir}=\frac{X^{new}_{ir}}{X^{old}_{ir}}$, $X^{old}_{ir}$ indicating the initial total production of $ir$ and $X^{new}_{ir}$ the 
+adapted total production. The nodes $ir\in V$ and $js\in V$ are connected by $n_{qZ}$ intermediate flows $Z_{ir\rightarrow js}$, weighted with the 
+flow ratios $q_{ir\rightarrow js}$. Similarly, the $n_{qY}$ final demand flows $Y_{ir\rightarrow s}$ are weighted with the flow ratios 
+$q_{ir\rightarrow s}$. \\
+A linear optimisation problem is formulated, using $\{p_{ir}\}$, $\{q_{ir\rightarrow js}\}$ and $\{q_{ir\rightarrow s}\}$ as free (non-leading) 
+variables, which are minimised according to the target function $T1(\{p_{ir}\}$, fulfilling the constraints $Ax = b$. The constraint matrix $A$ 
+consists of three different type of constraints $C1$, $C2$ and $C3$, which are described in the following. Two different linear problems LP1 and LP2 
+are formulated which both will be object of research.
+
+
+
+\subsection{Target function}
+% decision for linear program (vs. nonlinear / quadratic program)
+% absolute value just mention it
+% cost vector c^T
+\label{eq:targetF}
+
+The optimisation procedure is executed by using the following target function
+\begin{align}
+ F(\{p_{ir}\}) = \sum_{ir} |p_{ir} - 1| \tag{T1}
+\end{align}
+The vector of costs $c$ describes the weighted costs for each variable used. Since no flow variables appear in the target function, their 
+corresponding costs are set to zero, while each production ratio variable $p_{ir}$ is weighted evenly with a value of one
+\begin{align}
+ c = (\underbrace{1,...,1}_{n_{ir}}\;\,,\underbrace{0,...,0}_{n_{qY}+n_{qZ}})\;.
+\end{align}
+
+
+
+
+\subsection{Final demand constraint}
+\label{eq:C1}
+
+\begin{align}
+  \sum_{r} q_{ir\rightarrow s}Y_{ir\rightarrow s} = \sum_r Y_{ir\rightarrow s} \;; \forall s; \forall i \tag{C1}\;.
+\end{align}
+The equation's left-hand side sums up all adaptable final demand flows $q_{ir\rightarrow s}Y_{ir\rightarrow s}$ of a sector $i$ into a region $s$. 
+The result has to equal the sum of all final demand flows $Y_{ir\rightarrow s}$ of the initial unperturbed network.\\
+Each region receives at most $n_i$ different input goods, therefore the maximum number of final demand constraints (C1) of the linear problem amounts 
+to $n_{C1} = n_r \cdot n_i$ constraints.
+
+
+\subsection{Supply scaling constraint}
+\label{eq:C2}
+
+\begin{align}
+  \sum_r q_{ir\rightarrow js} Z_{ir\rightarrow js} = p_{js} \sum_r Z_{ir\rightarrow js}  \;; \forall js; \forall i \tag{C2}\;.
+\end{align}
+The sum of all adaptable intermediate flows $q_{ir\rightarrow js} Z_{ir\rightarrow js}$ of a sector $i$ into a node $js$ has to match the sum of its 
+original inputs $Z_{ir\rightarrow js}$, scaled by its adaptable production ratio $p_{js}$. \\
+%An adapted production ratio leads to an equally adjusted demand for inputs.\\
+At most, each node $js$ requires an input of each type of good, hence the maximum number of supply scaling constraints (C2) of the linear program 
+amounts to $n_{C2} = n_{ir} \cdot n_i = n_r \cdot n_i^2$.
+
+
+
+\subsection{Production output balance constraint}
+\label{eq:C3}
+
+\begin{align}
+  p_{ir} X_{ir} &= \sum_{js} q_{ir\rightarrow js} Z_{ir\rightarrow js} + \sum_{s} q_{ir\rightarrow s} Y_{ir\rightarrow s} \;; \forall ir\;. \tag{C3}
+\end{align}
+The adaptable production $p_{ir} X_{ir}$ of a node $ir$ has to equal the sum of its outgoing adaptable intermediate flows $q_{ir\rightarrow js} 
+Z_{ir\rightarrow js}$ plus the sum of its outgoing adaptable final demand flows $q_{ir\rightarrow s} Y_{ir\rightarrow s}$.\\
+This constraint has to be fulfilled by each node, therefore the number of production output balance constraints (C3) amounts to $n_{C3} = n_{ir}=n_r 
+\cdot n_i$. 
+
+
+
+\subsection{Linear problem 1 (LP1): Maximal adaptation}
+% LPG
+% free variables
+% if i*r* drops out
+% formula for varn and eqn
+The linear problem with maximal adaptation (LP1) is composed of the target function (\ref{eq:targetF}) and the constraints (\ref{eq:C1}) 
+(\ref{eq:C2}) (\ref{eq:C3}):
+\begin{align}
+\hline
+ & & \underset{p_{ir}}{\min}\; F &= \sum_{ir} |p_{ir} - 1| \tag{T1} \\
+ & s.t. & \sum_{r} q_{ir\rightarrow s}Y_{ir\rightarrow s} &= \sum_r Y_{ir\rightarrow s} \;;  \forall s;\forall i  \tag{C1} \\
+ & & \sum_{r} q_{ir\rightarrow js} Z_{ir\rightarrow js} &= p_{js} \sum_{r} Z_{ir\rightarrow js}   \;;  \forall js;\forall i \tag{C2} \\
+ & & p_{ir} X_{ir} &= \sum_{js} q_{ir\rightarrow js} Z_{ir\rightarrow js} + \sum_{s} q_{ir\rightarrow s} Y_{ir\rightarrow s} \;; \forall ir 
+\tag{C3}\;.\\
+\hline \nonumber
+\end{align} 
+All production ratio variables $p_{ir}$ and flow ratio variables $q_{ir\rightarrow js}, q_{ir\rightarrow s}$ are treated as a free variables 
+under the optimisation procedure, so the solution vector $x$ yields
+\begin{align}
+  x=(\{p_{ir}\}, \{q_{ir\rightarrow js}\}, \{q_{ir\rightarrow s}\}); \forall ir, \forall js, \forall s\;.
+\end{align}
+The maximal amount of free variables $n_{var}$ consists of the amount of production ratio variables $n_{ir} = n_r \cdot n_i$, the amount of 
+intermediate flows $n_{qZ} = n_{ir} \cdot n_{ir} = n_{ir}^2$ plus the amount of final demand flows $n_{qY} = n_r \cdot n_{ir} = n_r^2 \cdot n_i$
+\begin{align}
+ n_{var} = n_{ir}^2 + n_r^2 \cdot n_i + n_r \cdot n_i\;.
+\end{align}
+This represents a fully connected network, with a maximal amount of constraints
+\begin{align}
+ n_{C} = n_{C1} + n_{C2} + n_{C3} =  n_r \cdot n_i^2 + 2\; n_r \cdot n_i\;.
+\end{align}
+In the case of a drop out of node $i^*r^*$, its production ratio $p_{i^*r^*}$ together with all intermediate input flows from other nodes $js$ into 
+$i^*r^*$ 
+$q_{js\rightarrow i^*r^*}$  and all outgoing flows $q_{i^*r^*\rightarrow js}, q_{i^*r^*\rightarrow s}$ are set to zero and removed from the set of 
+free variables $x$:
+\begin{align}
+ p_{i^*r^*}&=0\;,\\
+ q_{i^*r^*\rightarrow js}&=0; \forall js\;,\\
+ q_{i^*r^*\rightarrow s}&=0; \forall s\;,\\
+ q_{js\rightarrow i^*r^*}&=0; \forall js\;.
+\end{align}
+
+
+
+
+
+\subsection{Linear problem 2 (LP2): Reduced adaptation}
+% LPS
+% assumptions
+% free variables
+% if i*r* drops out
+% formula for varn and eqn
+
+By reducing the amount of free variables $x$ of the optimisation problem by transforming some of them into leading variables (which are dependent on 
+the free variables), one can influence the resulting network properties and save computing time.\\
+In the case of the linear problem 2 (LP2) the focus of adaptation is set on flows transporting goods $i^*$, which shall remain freely adaptible and 
+therfore part of the free variables $x$, while all other flows with $i\neq i^*$ are omitted
+\begin{align}
+ x=(\{p_{ir}\}, \{q_{i^*r\rightarrow js}\}, \{q_{i^*r\rightarrow s}\}); \forall i; \forall r; \forall js; \forall s\;.
+\end{align}
+The flows with $i\neq i^*$ are determined by predefined equations
+\begin{align}
+\label{eq:preeq}
+ q_{ir\rightarrow js} &= p_{js} \;; \forall i\neq i^*; \forall r; \forall js\;,\\     
+ q_{ir\rightarrow s}  &= 1 \;; \forall i\neq i^*; \forall r; \forall s \;.
+\end{align}
+This formulation of a linear problem keeps all final demand flows $Y_{ir\rightarrow s}$ with goods $i\neq i^*$ constant under perturbation. In 
+addition, all intermediate input flows $Z_{ir\rightarrow js}$ with $i\neq i^*$ are assumed to be equal to the production ratio $p_{js}$ of the input 
+node $js$. This means that a change of production $p_{js}$ and therefore a change of inputs $Z_{ir\rightarrow js}$ is evenly distributed over all 
+suppliers of node $js$.\\
+Using the above changes, the linear problem 1 (LP1) transforms into the new linear problem 2 (LP2)
+\begin{align}
+\hline
+ & & \underset{p_{ir}}{\min}\; F &= \sum_{ir} |p_{ir} - 1| \tag{T1} \\
+ & s.t. & \sum_{r} q_{i^*r\rightarrow s}Y_{i^*r\rightarrow s} &= \sum_r Y_{i^*r\rightarrow s} \;; \forall s  \tag{C1} \\
+ & & \sum_{r} q_{i^*r\rightarrow js} Z_{i^*r\rightarrow js} &= p_{js} \sum_{r} Z_{i^*r\rightarrow js}\;; \forall js  
+\tag{C2} \\
+ & &p_{i^*r} X_{i^*r} &= \sum_{js} q_{i^*r\rightarrow js} Z_{i^*r\rightarrow js} + \sum_{s} q_{i^*r\rightarrow s} Y_{i^*r\rightarrow s} 
+\;; \forall r \tag{C3a} \\
+ & & p_{ir} X_{ir} &= \sum_{js} p_{js} Z_{ir\rightarrow js} + \sum_s Y_{ir\rightarrow s} \;; \forall i\neq i^*;\; \forall r \tag{C3b}\\
+\hline \nonumber
+\end{align}
+The final demand constraints (C1) only need to be formulated for flows with good $i^*$, because the predefined equations (\ref{eq:preeq}) determine 
+all final demand flows with $i\neq i^*$, making the corresponding constraints dispensable. The maximal amount of final demand constraints (C1) reduces 
+to $n_{C1} = n_r$. Similarly the supply scaling constraint (C2) is reduced to those equations using flows with good $i^*$. All other intermediate 
+flows are determined, leading to omittance of the corresponding equations and to a maximal amount of supply scaling constraints of $n_{C2} = n_{ir} 
+= n_r \cdot n_i$. The production output balance constraint (C3) is split into two constraints (C3a) and (C3b). The first is valid for nodes which 
+produce the good $i^*$ and keeps the form of LP1 with adaptability of intermediate flows as well as final demand flows. Contrarily, for nodes with 
+$i\neq i^*$ constraint (C3b) shows with a reduced adaptability, because both flow variables are substituted by the predefined equations, only leaving 
+the production ratio $p_{ir}$ as a free variable. Still there is exactly one production output balance constraint for each node $n_{C3} = n_r \cdot 
+n_i$. Altogether, the maximal amount of constraints for LP2 adds up to
+\begin{align}
+ n_{C} = n_{C1} + n_{C2} + n_{C3} = n_r + 2\; n_r \cdot n_i\;.
+\end{align}
+The maximal amount of intermediate flow variables is reduced to $n_{qZ} = n_{ir}\cdot n_r = n_r^2 \cdot n_i$, because each node gets one input with 
+$i^*$ from each regional sector $i^*r$. Moreover, the amount of final demand flow free variables equals $n_{qY} = n_r^2$. Adding the amount of 
+production ratios $n_{ir}=n_r \cdot n_i$, the maximal amount of variables for LP2 amounts to
+\begin{align}
+ n_{var} = n_r^2 \cdot n_i + n_r^2 + n_r \cdot n_i\;.
+\end{align}
+Analogously to LP1, the drop out of node $i^*r^*$ leads to the removal of following variables out of the set of $x$
+\begin{align}
+ p_{i^*r^*}&=0\;,\\
+ q_{i^*r^*\rightarrow js}&=0; \forall js\;,\\
+ q_{i^*r^*\rightarrow s}&=0; \forall s\;,\\
+ q_{js\rightarrow i^*r^*}&=0; \forall js\;.
+\end{align}
+
+
+
+\section{Simplex method}
+% simplex algorithm
+% simplex vs. other algorithms
+% degenerated solutions
+
+\label{chapter:simplex}
+
+\subsection{Mathematical derivation}
+
+The simplex optimisation method\footnote{This mathematical derivation is based on the script ``Lineare Optimierung'' of Prof. Dr. Bernhard Schmitt, 
+University of Marburg} is applied to linear programs
+\begin{gather}
+ \underset{x}{\min} \{c^T x: x\in X\}, \\
+  X := \{x \in \mathbb{R}^n: Ax = b, x \ge 0\},
+\end{gather}
+with $A \in \mathbb{R}^{m\times n}, b \in \mathbb{R}^m$ and $\text{rank}(A)=m < n$. The solution space $X$ is restricted by hyperplanes $Ax=b$ and 
+$x\ge 0$, forming the shape of a convex polyhedron. For an under-determined system of equations ($m<n$) a special (not necessarily optimal) basic 
+solution $\bar{x} \in X$ exists with $m$ active components $\bar{x}_J \ge 0$, assigned by inidices $\{j\} = J \subseteq N := \{1,...,n\}$. The 
+remaining $n-m$ inactive components equal zero and are identified by indices $\{k\} = K = N \setminus J$, so that $\bar{x} = (\bar{x}_J,\bar{x}_K)$. 
+Analogously, the constraint matrix $A$ can be 
+seperated into a submatrix $A_J=(a_{j1},...,a_{jm}) \in \mathbb{R}^{m\times m}$, containing the columns corresponding to the active components, and a 
+matrix $A_K=(a_{k1},...,a_{km}) \in \mathbb{R}^{m\times n-m}$ containing the inactive columns of 
+$A$, resulting in $A=(A_J, A_K)$. Solution $\bar{x}$ is called the basis solution with basis $A_J$. Using the above partitions yields
+\begin{align}
+ b &= A\bar{x} = A_J \bar{x}_J + A_{K} \bar{x}_K\;,\\
+ \xrightarrow{\bar{x}_K = 0} b &= A_J \bar{x}_J \;. \label{eq:basis}
+\end{align}
+Moreover, with knowledge of a special solution $\bar{x} = (\bar{x}_J, \bar{x}_K)$, other points $x=(x_J,x_K)\in X$ ($x_K$ not necessarily zero) on 
+the edge of the polyhedron can be created, using Eq(\ref{eq:basis})
+\begin{align}
+ b &= Ax = A_J x_J + A_K x_K \\
+ \leftrightarrow x_J &= A_J^{-1} b - A_J^{-1} A_K x_K \\
+                     &= \bar{x}_J - A_J^{-1} A_K x_K\;.
+\end{align}
+Substituting $x_K$ by the parameter $\lambda_K$ leads to
+\begin{align}
+ x = \begin{pmatrix} x_J \\ x_K \end{pmatrix} = \begin{pmatrix} \bar{x}_J \\ 0_K \end{pmatrix} + 
+\begin{pmatrix} - A_J^{-1} A_K \\ I_{n-m} \end{pmatrix} \lambda_K = \bar{x} - W_K \lambda_K \ge 0\,,
+\end{align}
+with 
+\begin{align}
+ \begin{pmatrix} - A_J^{-1} A_K \\ I_{n-m} \end{pmatrix} = \begin{pmatrix} W_K^{(J)} \\ W_K^{(K)} 
+\end{pmatrix} = W_K \in \mathbb{R}^{n \times (n-m)}\;.
+\end{align}
+By increasing the value of a component $x_l \in x, l\in K$ one moves along a ray inside the solution space $X$, originating in $\bar{x}$. All rays 
+for each $l\in K$ create a cone with $\bar{x}$ being the peak and a corner of the convex polyhedron $X$. One elementary ray is 
+\begin{align}
+ x(\lambda_l) := \bar{x} - \lambda_l w_l \leftrightarrow \begin{cases} x_J(\lambda_l) = \bar{x}_J - \lambda_l A_J^{-1} a_l \\ 
+x_K(\lambda_l) = \lambda_l \delta_{kl}, k\in K \end{cases}\;,
+\end{align}
+with $w_l$ being the l-th column of $W_K$, $a_l$ the l-th column of $A_K$ and $\delta_{kl}$ being the 
+Kronecker Delta.
+
+The fundamental concept of the Simplex method is to start from one basic solution $\bar{x}$ in the corner of the polyhedron and move along one 
+selected ray $x(\lambda_l)$ towards another corner, reducing the target function meanwhile and repeating this procedure until the optimal solution 
+corner $x^*$ is found. To figure out which ray originating in $\bar{x}$ reduces the target function, we consider the cost function
+\begin{align}
+ c^T x &= c_J^T x_J + c_K^T x_K = c_J^T (\bar{x}_J - A_J^{-1} A_K x_K) + c_K^T x_K\\
+       &= \underbrace{c_J^T \bar{x}_J}_{c^T \bar{x}} + \underbrace{(x_K^T - c_J^T A_J^{-1} A_K)}_{\gamma_K^T} x_K = c^T \bar{x} + \gamma_K^T 
+x_K\;.
+\end{align}
+The cost function in the area of $\bar{x}$ changes by increasing the non-basis variables $x_K=\lambda_K$, weighted by the vector of reduced costs 
+$\gamma_K$. Moving along a ray $x(\lambda_l)$ with negative reduced costs 
+$\gamma_l$  leads towards the minimal solution of the linear program. The minimum is reached when each element of $\gamma_K$ is non-negative 
+$\gamma_l\ge 0\;; \forall l$. In this case the corresponding special basic corner solution $\bar{x}$ is identified as the optimal solution $x^*$. 
+While moving along the ray it is important to ensure that every component of $x$ remains inside the solution area $X$. Consider ray $x(\lambda_l)$ in 
+component form
+\begin{align}
+ x_j(\lambda_l) = \bar{x}_j - \lambda_l w_{jl}\;.
+\end{align}
+While increasing $\lambda_l \ge 0$ the components $x_j(\lambda_l)$ will increase if $w_{jl} \le 0$. For executing a basis change $\lambda_l$ will be 
+set to a value, so that one component $x_p(\lambda_l)$ gets equal to zero and can therefore 
+be removed from the active set. For this reason, only those components with $w_{jl} > 0$ are considered. To ensure that all components of $x$ stay 
+inside the solution area $X$, $\lambda_l$ is increased until the first component $x_p$ gets zero
+\begin{align}
+ \lambda_l := \min \{ \frac{\bar{x}_i}{w_{il}} : i\in J, w_{il} >0\} = \frac{\bar{x}_p}{w_{pl}} \ge 0\;.
+\end{align}
+The index $p$ is added to the inactive set $K$, while variable $l$ is included into the new basis set $J$
+\begin{align}
+ J &= J \setminus \{p\} \cup \{l\}\\
+ K &= N \setminus J \;.
+\end{align}
+resulting in a new corner solution $\bar{x}=(\bar{x}_J, \bar{x}_K)$ moving the target function $F1$ closer to \cite{Braess} the minimum.\\
+
+afdadfasfdasfasdfas
+\subsection{Simplex application scheme}
+% Computing time Aufwand 6m^2 (skript S19)
+
+
+
+\begin{table}[!h]
+\onehalfspacing
+ \begin{tabular}{|c|c|}
+
+\hline
+Input	&Initial feasible basis $A_J$, $J \subseteq N$, $N := \{1,...,n\}$	\\
+\hline
+Step 1	&$\bar{x}_J := A_J^{-1} b$, $K := N \setminus J$	\\
+\hline
+Step 2	&search for $\gamma_l < 0$ out of $\gamma_j := c_j - c_J^T A_J^{-1}a_j; j\in K$	\\
+\hline
+Step 3	&if $\gamma_j \ge 0\; \forall j \in K$: \textbf{STOP, optimum found} \\
+\hline
+Step 4	&$w_l^{(J)}:=A_J^{-1}a_l$\\
+\hline
+Step 5	&if $w_{il} \le 0\; \forall i \in J$: \textbf{STOP, unbounded solution}	\\
+\hline
+Step 6	&Identify $p \in J$ with: $\frac{\bar{x}_p}{w_{pl}} := \min \{ \frac{\bar{x}_i}{w_{il}} : w_{il} > 0, i\in J \} =  \lambda_l$ \\
+\hline
+Step 7	&$J:= J \setminus \{p\} \cup \{l\}$; \textbf{jump to step 1} \\
+\hline
+ 
+ 
+ \end{tabular}
+ \caption{Simplex algorithm}
+
+\end{table}
+
+
+
+\section{Appendix}
+
+\bibliography{sources123}{}
+\bibliographystyle{unsrt}
+
+gsadgsdfgsfd
+
+cnbxvcb
+
+
+
+
+
+
+\end{document}
