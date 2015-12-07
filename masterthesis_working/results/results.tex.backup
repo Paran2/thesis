@@ -8,13 +8,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\begin{figure}[!h]
- \centering
- \includegraphics[width=\textwidth]{colormap}
- \caption{Use these colormaps, because they are cool! Don't know what for yet, though.}
-\end{figure}
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -30,7 +23,6 @@
 
 \begin{description}
  \item[[ ]] use JPN MACH as center point, so find supply chain of METL, MINQ, MACH etc.
- \item[[ ]] identify which sector is high quality and which is low quality
 \end{description}
 
 
@@ -38,7 +30,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{compensation potential}
+\section{absorption potential}
 
 \begin{itemize}
  \item Here I discuss the abilities of rs to compensate a loss and how we could estimate it.
@@ -50,7 +42,6 @@
  \item[[ ]] plots with degree, X, alpha, shared neighbours, etc. 
  \item[[ ]]For Agg=1, do some kind of statistics. Is the upper right one usually the one with 
 the highest change? Are these three good criterions? Find a kind of law maybe?
- \item[[ ]] aggregate for regions and sectors
  \item[[ ]] Maybe apply other criteria? Some graph theory properties? 
 \end{description}
 
@@ -77,26 +68,13 @@ scenario that will lead me throuh my thesis
  \item[[ ]] show pie charts of chosen ir $\rightarrow$ introduction pie charts
  \item[[ ]] explain behaviour
  \item[[ ]] identify forward effect here
+ 
 \end{description}
-
-
 
 
 %%%%%%%%%%
 \subsection{Japan machinery drops out}
 
-
-\begin{figure}[!h]
- \centering
- \includegraphics[width=\textwidth]{JPNMACH_p}
- \caption{LPS, JPN MACH, Agg=0, backward effect: New Caledonia}
-\end{figure}
-
-\begin{figure}[!h]
- \centering
- \includegraphics[width=\textwidth]{resultnet1}  
- \caption{Use Gephi-network visualisations, because they are cool! Don't know what for yet, though.}
-\end{figure}
 
 %%%%%%%%%%
 \subsection{other forward effect example}
@@ -112,27 +90,6 @@ scenario that will lead me throuh my thesis
  \item Idea: In case studies, we identify rules/indices that determine possible compensators due to network properties. So we can 
 create a ``law'' / ``equation'' to determine the most probable compensators. This result can be checked with this statistics section
 \end{itemize}
-
-
-%%%%%%%%%%
-\subsection{pitlde(ir)}  
-
-\begin{description}
- \item[[ ]] give a plot / overview about all identified ptilde
- \item[[ ]] explain why ptilde (possibly) exists and which sectors / regions have very high/low ptildes
-\end{description}
-
-\begin{figure}[!h]
- \centering
- \includegraphics[width=\textwidth]{ptilders1}
- \caption{LPG, Agg=1, pfix=0.5}
-\end{figure}
-
-\begin{figure}[!h]
- \centering
- \includegraphics[width=\textwidth]{ptildersdistr1}
- \caption{LPG, Agg=1, pfix=0.5}
-\end{figure}
 
 
 %%%%%%%%%%
@@ -159,27 +116,14 @@ Show position of rs we discussed in detail (case study) before.
  \caption{F for all ir, LPS, pfix=0.5, by regions}
 \end{figure}
 
-\begin{figure}[!h]
- \centering
- \includegraphics[width=\textwidth]{FstatLPGsectors}
- \caption{F for all ir, LPG, pfix=0.5, by sectors}
-\end{figure}
-
-\begin{figure}[!h]
- \centering
- \includegraphics[width=\textwidth]{FstatLPSsectors}
- \caption{F for all ir, LPS, pfix=0.5, by sectors}
-\end{figure}
 
 %%%%%%%%%%
 \subsection{comp\_ir(ir)}
 
 \begin{description}
  \item[[ ]] Plot strongest compensator rs\_comp(rs) for LPG and LPS (Decide: max(p) or max($p_i*r$) as criterion?) 
- \item[[ ]] Differences LPG and LPS
  \item[[ ]] Order (as done already) in regions, but alsorder in sectors. 
  \item[[ ]] USA and China as stabilisators of the world economy 
- \item[[ ]] Check: USA for high quality (top of supply chain) and China lower products?
  \item[[ ]] Maybe case-study the other compensators? Why are they important in that specific case?
 \end{description}
 
@@ -219,99 +163,31 @@ Show position of rs we discussed in detail (case study) before.
  \item[[ ]] Idea: In theory develop a rule / equation / law that hints at a linear response of the system. Maybe the ``expansion'' of the polyhedron, 
 until it touches a hyperplane? In this chapter, show that this is the truth. 
  \item[[ ]] show plots F(pfix) and p(pfix) and linear regression. Show linearity
- \item[[ ]] shows F(LPS)>F(LPG)
  \item[[ ]] mention nonlinear behaviour for small pfix (dealt with in the next chapter)
  \item[[ ]] Measure the slope F(pfix) / p(pfix) and connect it to some network properties - estimate the behaviour without actually doing the 
 simulation.
- \item[[ ]] hypothesis: slope is identical for LPG between Agg=0 and Agg=1, proofed once already. Also yaxis same! Does not work for LPS. Explain why
+ \item shows phase transition
+ \item shows F(LPS)>F(LPG)
 \end{description}
 
-\begin{figure}[!h]
+\begin{figure}
  \centering
  \includegraphics[width=\textwidth]{linrep1}
  \caption{Agg=0, LPG, i*r*=2245, linear part}
 \end{figure}
 
-\begin{figure}[!h]
- \centering
- \includegraphics[width=\textwidth]{linreprs1}
- \caption{Agg=0, LPS, i*r*=2245, rs=4611, linear part}
-\end{figure}
 
-\begin{figure}[!h]
- \centering
- \includegraphics[width=\textwidth]{linreprs2}
- \caption{Agg=0, LPS, i*r*=2245, rs=4611, logarithmic}
-\end{figure}
 
-\begin{figure}[!h]
- \centering
- \includegraphics[width=\textwidth]{linreprs3}
- \caption{Agg=0, LPS, i*r*=2245, rs=3675, linear part}
-\end{figure}
-
-\begin{figure}[!h]
- \centering
- \includegraphics[width=\textwidth]{linreprs4}
- \caption{Agg=0, LPS, i*r*=2245, rs=3675, logarithmic}
-\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{phase transition}
-
-\subsection{phase transition of a single rs}
-
-\begin{description}
- \item[[ ]] refer to above plots and zoom in to small pfix and show as plots. Nonlinearity
- \item[[ ]] Try to fit it and have an equation for it
- \item[[ ]] give an explanation for that and proof it by pie-charts etc. (Final Demand). Explain also with expansion of polyhedron and hyperplane.
-\end{description}
 
 \begin{figure}
  \centering
  \includegraphics[width=\textwidth]{phasetran1}
  \caption{Agg=0, LPG, i*r*=2245, nonlinear part, slope: m=-1.841=m(Agg1,LP0)}
 \end{figure}
-
-\subsection{phase transition of the whole system}
-
-\begin{description}
- \item[[ ]] show for the same pfix as above the p-behaviour of the whole system 
- \item[[ ]] some rs drop to zero one by one, while one goes high 
- \item[[ ]] show how the second phase transition happens
- \item[[ ]] explain this systemic behaviour (without real world relevance, but just system understanding) and give reasons and explanations
-\end{description}
-
- 
-\begin{figure}
- \centering
- \includegraphics[width=\textwidth]{ptsystem1}
- \caption{Agg=1, LPS, i*r*=1, constant yaxis}
-\end{figure}
-
-\begin{figure}
- \centering
- \includegraphics[width=\textwidth]{ptsystem1}
- \caption{Agg=1, LPS, i*r*=1, variable yaxis: same pic as before right now}
-\end{figure}
-
-\begin{figure}
- \centering
- \includegraphics[width=\textwidth]{ptsystemF1}
- \caption{Agg=1, LPS, i*r*=1}
-\end{figure}
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{extreme event increase with ongoing climate change impacts}
-
-\begin{description}
- \item[-)] apply extreme event estimates on my data and thus connect climate change to my work
-\end{description}
 
 
 

@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.5.15)  30 NOV 2015 17:55
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.5.15)  7 DEC 2015 13:31
 entering extended mode
 **masterthesis.tex
-(C:\masterthesis\masterthesis\masterthesis_working\masterthesis.tex
+(H:\thesis\masterthesis_working\masterthesis.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -173,19 +173,19 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 Package: titletoc 2011/12/15 v1.6 TOC entries
 \ttl@leftsep=\dimen127
 )
-(C:\masterthesis\masterthesis\masterthesis_working\masterthesis.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
+(H:\thesis\masterthesis_working\masterthesis.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 
 (C:\MiKTeX\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -200,28 +200,27 @@ LaTeX Font Info:    ... okay on input line 28.
 \MPnumerator=\count109
 \makeMPintoPDFobject=\count110
 \everyMPtoPDFconversion=\toks24
-)
-LaTeX Font Info:    Try loading font information for U+msa on input line 50.
- (C:\MiKTeX\tex\latex\amsfonts\umsa.fd
+) (H:\thesis\masterthesis_working\header/header.tex
+LaTeX Font Info:    Try loading font information for U+msa on input line 21.
+
+(C:\MiKTeX\tex\latex\amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 50.
+LaTeX Font Info:    Try loading font information for U+msb on input line 21.
  (C:\MiKTeX\tex\latex\amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+[1
 
 {C:/Users/klipp/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(C:\masterthesis\masterthesis\masterthesis_working\masterthesis.toc [1
+(H:\thesis\masterthesis_working\masterthesis.toc [1
 
 ])
 \tf@toc=\write3
-
-[2]
+ [2])
+(H:\thesis\masterthesis_working\introduction/introduction.tex
 Chapter 1.
-
-(C:\masterthesis\masterthesis\masterthesis_working\introduction/introduction.te
-x) (C:\masterthesis\masterthesis\masterthesis_working\theory/theory.tex
-[3
+) (H:\thesis\masterthesis_working\theory/theory.tex [3
 
 ]
 Chapter 2.
@@ -230,46 +229,121 @@ Overfull \hbox (14.62473pt too wide) in paragraph at lines 48--48
 []\OT1/cmr/bx/n/14.4 complex sys-tems, lin-ear re-sponses, phase tran-
  []
 
-)
-(C:\masterthesis\masterthesis\masterthesis_working\model_setup/model_setup.tex
-[4
+) (H:\thesis\masterthesis_working\model_setup/model_setup.tex [4
 
 ] [5]
 Chapter 3.
-) (C:\masterthesis\masterthesis\masterthesis_working\results/results.tex
-[6
+) (H:\thesis\masterthesis_working\results/results.tex [6
 
 ]
 Chapter 4.
-) (C:\masterthesis\masterthesis\masterthesis_working\final/final.tex [7
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 14.
+(C:\MiKTeX\tex\latex\base\omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 14.
 
-]
+<./results/figures/FstatLPG.png, id=29, 1205.2528pt x 816.80156pt>
+File: ./results/figures/FstatLPG.png Graphic file (type png)
+
+<use ./results/figures/FstatLPG.png>
+Package pdftex.def Info: ./results/figures/FstatLPG.png used on input line 33.
+(pdftex.def)             Requested size: 345.0pt x 233.81285pt.
+
+<./results/figures/FstatLPS.png, id=30, 1205.2528pt x 816.80156pt>
+File: ./results/figures/FstatLPS.png Graphic file (type png)
+
+<use ./results/figures/FstatLPS.png>
+Package pdftex.def Info: ./results/figures/FstatLPS.png used on input line 39.
+(pdftex.def)             Requested size: 345.0pt x 233.81285pt.
+ [7
+
+] [8 <H:/thesis/masterthesis_working/results/figures/FstatLPG.png (PNG copy)> <
+H:/thesis/masterthesis_working/results/figures/FstatLPS.png (PNG copy)>]
+<./results/figures/comp1.png, id=40, 1205.2528pt x 816.80156pt>
+File: ./results/figures/comp1.png Graphic file (type png)
+
+<use ./results/figures/comp1.png>
+Package pdftex.def Info: ./results/figures/comp1.png used on input line 56.
+(pdftex.def)             Requested size: 345.0pt x 233.81285pt.
+
+<./results/figures/comp2.png, id=41, 1193.20781pt x 812.28468pt>
+File: ./results/figures/comp2.png Graphic file (type png)
+
+<use ./results/figures/comp2.png>
+Package pdftex.def Info: ./results/figures/comp2.png used on input line 62.
+(pdftex.def)             Requested size: 345.0pt x 234.86243pt.
+
+<./results/figures/comp3.png, id=42, 1193.20781pt x 812.28468pt>
+File: ./results/figures/comp3.png Graphic file (type png)
+
+<use ./results/figures/comp3.png>
+Package pdftex.def Info: ./results/figures/comp3.png used on input line 68.
+(pdftex.def)             Requested size: 345.0pt x 234.86243pt.
+
+<./results/figures/comp4.png, id=43, 1193.20781pt x 812.28468pt>
+File: ./results/figures/comp4.png Graphic file (type png)
+
+<use ./results/figures/comp4.png>
+Package pdftex.def Info: ./results/figures/comp4.png used on input line 74.
+(pdftex.def)             Requested size: 345.0pt x 234.86243pt.
+ [9 <H:/thesis/masterthesis_working/results/figures/comp1.png (PNG copy)>] [10 
+<H:/thesis/masterthesis_working/results/figures/comp2.png (PNG copy)> <H:/thesi
+s/masterthesis_working/results/figures/comp3.png (PNG copy)>]
+<./results/figures/linrep1.png, id=50, 1205.2528pt x 816.80156pt>
+File: ./results/figures/linrep1.png Graphic file (type png)
+
+<use ./results/figures/linrep1.png>
+Package pdftex.def Info: ./results/figures/linrep1.png used on input line 107.
+(pdftex.def)             Requested size: 345.0pt x 233.81285pt.
+
+<./results/figures/phasetran1.png, id=51, 1205.2528pt x 816.80156pt>
+File: ./results/figures/phasetran1.png Graphic file (type png)
+
+<use ./results/figures/phasetran1.png>
+Package pdftex.def Info: ./results/figures/phasetran1.png used on input line 11
+6.
+(pdftex.def)             Requested size: 345.0pt x 233.81285pt.
+
+Underfull \hbox (badness 4217) in paragraph at lines 117--117
+[]\OT1/cmr/m/n/10 Figure 4.8: Agg=0, LPG, i*r*=2245, non-lin-ear part, slope: m
+=-
+ []
+
+) (H:\thesis\masterthesis_working\final/final.tex [11 <H:/thesis/masterthesis_w
+orking/results/figures/comp4.png (PNG copy)>] [12 <H:/thesis/masterthesis_worki
+ng/results/figures/linrep1.png (PNG copy)> <H:/thesis/masterthesis_working/resu
+lts/figures/phasetran1.png (PNG copy)>] [13]
 Chapter 5.
-) (C:\masterthesis\masterthesis\masterthesis_working\masterthesis.bbl [8
+) (H:\thesis\masterthesis_working\appendix/appendix.tex
+(H:\thesis\masterthesis_working\masterthesis.bbl [14
 
 ]
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [9
+)) [15
 
-] (C:\masterthesis\masterthesis\masterthesis_working\masterthesis.aux) ) 
+] (H:\thesis\masterthesis_working\masterthesis.aux) ) 
 Here is how much of TeX's memory you used:
- 2494 strings out of 493921
- 31120 string characters out of 3154500
+ 2562 strings out of 493921
+ 32353 string characters out of 3154500
  86296 words of memory out of 3000000
- 5743 multiletter control sequences out of 15000+200000
+ 5789 multiletter control sequences out of 15000+200000
  9918 words of font info for 38 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,6n,26p,224b,163s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmbx12.pfb><C:/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmr12.pfb>
-Output written on masterthesis.pdf (10 pages, 91625 bytes).
+ 27i,6n,26p,267b,230s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmbx10.pfb><C:/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+><C:/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi10.pfb><C:/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pf
+b><C:/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmr12.pfb><C:/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+>
+Output written on masterthesis.pdf (16 pages, 261112 bytes).
 PDF statistics:
- 55 PDF objects out of 1000 (max. 8388607)
+ 94 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

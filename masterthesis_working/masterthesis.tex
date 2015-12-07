@@ -13,26 +13,27 @@
 \titlecontents*{chapter}% <section-type>
   [0pt]% <left>
   {}% <above-code>
-  {\bfseries\chaptername\ \thecontentslabel\quad}% <numbered-entry-format>
+  {\bfseries\chaptername\ \thecontentslabel\quad}% <numbered-entry-format> 
   {}% <numberless-entry-format>
   {\bfseries\hfill\contentspage}% <filler-page-format>
+ 
+  
+\begin{document}   
 
 
-\begin{document}
+  
+\input{header/header.tex}   
 
-
-\input{header/header.tex}
-
-\input{introduction/introduction.tex}      
+\input{introduction/introduction.tex}       
 
 \input{theory/theory.tex}
 
-\input{model_setup/model_setup.tex}
+\input{model_setup/model_setup.tex} 
 
 
 \input{results/results.tex}
-
-\input{final/final.tex} 
+ 
+\input{final/final.tex}  
  
 \input{appendix/appendix.tex}
 
